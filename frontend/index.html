@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AeroRate - Califica tus vuelos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>AeroRate ✈️</h1>
+    <p>Reseñas y opiniones de aerolíneas en tiempo real</p>
+  </header>
+
+  <main class="container">
+    <!-- Sección de Autenticación -->
+    <section class="card" id="auth-section">
+      <h2>Cuenta de Usuario</h2>
+      
+      <form id="login-form">
+        <h3>Iniciar Sesión</h3>
+        <input type="email" id="login-email" placeholder="Correo electrónico" required>
+        <input type="password" id="login-password" placeholder="Contraseña" required>
+        <button type="submit">Entrar</button>
+      </form>
+
+      <hr>
+
+      <form id="register-form">
+        <h3>Registrarse</h3>
+        <input type="text" id="reg-username" placeholder="Nombre de usuario" required>
+        <input type="email" id="reg-email" placeholder="Correo electrónico" required>
+        <input type="password" id="reg-password" placeholder="Contraseña" required>
+        <button type="submit">Crear Cuenta</button>
+      </form>
+    </section>
+
+    <!-- Sección de Reseñas -->
+    <section class="card" id="reviews-section">
+      <h2>Reseñas Recientes</h2>
+
+      <!-- Formulario para publicar reseña -->
+      <form id="review-form" style="margin-bottom: 20px;">
+        <h3>Dejar una opinión</h3>
+        <select id="review-rating" required style="padding: 10px; border-radius: 6px; background-color: #0f172a; color: #fff; border: 1px solid #334155;">
+          <option value="">Selecciona una calificación</option>
+          <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+          <option value="4">⭐⭐⭐⭐ (4/5)</option>
+          <option value="3">⭐⭐⭐ (3/5)</option>
+          <option value="2">⭐⭐ (2/5)</option>
+          <option value="1">⭐ (1/5)</option>
+        </select>
+        <textarea id="review-comment" placeholder="Escribe tu opinión sobre el vuelo..." required style="padding: 10px; border-radius: 6px; background-color: #0f172a; color: #fff; border: 1px solid #334155; min-height: 80px;"></textarea>
+        <button type="submit">Publicar Reseña</button>
+      </form>
+
+      <!-- Listado dinámico de opiniones -->
+      <div id="reviews-list">
+        <p>Cargando opiniones...</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/api.js"></script>
+</body>
+</html>

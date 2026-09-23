@@ -8,12 +8,6 @@ importers:
 
   .:
     dependencies:
-      dotenv:
-        specifier: ^18.0.1
-        version: 18.0.1
-
-  backend:
-    dependencies:
       bcryptjs:
         specifier: ^3.0.3
         version: 3.0.3

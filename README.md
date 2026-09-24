@@ -3,8 +3,8 @@
 Una plataforma para que viajeros compartan reseñas de vuelos y tomen decisiones con más confianza antes de reservar.
 
 ## Demo
-- App: https://aerorate.vercel.app
-- API: https://aerorate.onrender.com
+- App: https://aero-rate-delta.vercel.app/
+- API: https://aero-rate.onrender.com/
 - Cuenta de prueba: admin@aerorate.com / password123
 
 ## Capturas

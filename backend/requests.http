@@ -1,0 +1,53 @@
+### Registro válido
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "ana",
+  "email": "ana@example.com",
+  "password": "password123"
+}
+
+### Login válido
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "ana@example.com",
+  "password": "password123"
+}
+
+### Obtener reseñas
+GET http://localhost:3000/api/reviews
+
+### Crear reseña autenticada
+POST http://localhost:3000/api/reviews
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+
+{
+  "rating": 5,
+  "comment": "Excelente experiencia, muy puntual y cómoda."
+}
+
+### Caso de falla 1: inyección SQL
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@aerorate.com' OR '1'='1",
+  "password": "anything"
+}
+
+### Caso de falla 2: petición sin token
+GET http://localhost:3000/api/reviews/mine
+
+### Caso de falla 3: input inválido
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "a",
+  "email": "correo-invalido",
+  "password": "12"
+}

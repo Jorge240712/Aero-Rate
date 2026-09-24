@@ -1,66 +1,245 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AeroRate - Califica tus vuelos</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>AeroRate ✈️</h1>
-    <p>Reseñas y opiniones de aerolíneas en tiempo real</p>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07131e" />
+    <title>AeroRate | Viajes guiados por personas reales</title>
+    <meta
+      name="description"
+      content="AeroRate te ayuda a descubrir destinos, comparar rutas y leer historias de viajeros reales antes de reservar tu próxima aventura."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="home">
+    <div class="page-noise"></div>
+    <div class="aurora aurora-one"></div>
+    <div class="aurora aurora-two"></div>
+    <div class="grid-glow"></div>
 
-  <main class="container">
-    <!-- Sección de Autenticación -->
-    <section class="card" id="auth-section">
-      <h2>Cuenta de Usuario</h2>
-      
-      <form id="login-form">
-        <h3>Iniciar Sesión</h3>
-        <input type="email" id="login-email" placeholder="Correo electrónico" required>
-        <input type="password" id="login-password" placeholder="Contraseña" required>
-        <button type="submit">Entrar</button>
-      </form>
+    <header class="topbar">
+      <a href="index.html" class="brand-wrap">
+        <div class="brand-mark">A</div>
+        <span>AeroRate</span>
+      </a>
 
-      <hr>
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="destinos.html">Destinos</a>
+        <a href="vuelos.html">Vuelos</a>
+        <a href="comunidad.html">Comunidad</a>
+        <a href="perfil.html">Perfil</a>
+      </nav>
 
-      <form id="register-form">
-        <h3>Registrarse</h3>
-        <input type="text" id="reg-username" placeholder="Nombre de usuario" required>
-        <input type="email" id="reg-email" placeholder="Correo electrónico" required>
-        <input type="password" id="reg-password" placeholder="Contraseña" required>
-        <button type="submit">Crear Cuenta</button>
-      </form>
-    </section>
+      <a class="ghost-btn" href="auth.html">Entrar</a>
+    </header>
 
-    <!-- Sección de Reseñas -->
-    <section class="card" id="reviews-section">
-      <h2>Reseñas Recientes</h2>
+    <main class="page-shell">
+      <section class="hero reveal">
+        <div class="hero-copy">
+          <p class="eyebrow">Tu próximo viaje, pensado por viajeros</p>
+          <h1>Vive la ciudad,<br /><span>como si ya hubieras llegado.</span></h1>
+          <p class="lead">
+            AeroRate combina historias reales, rutas inteligentes y reseñas de personas que ya pasaron por ahí para que elijas mejor, vueles más tranquilo y vivas cada destino con confianza.
+          </p>
 
-      <!-- Formulario para publicar reseña -->
-      <form id="review-form" style="margin-bottom: 20px;">
-        <h3>Dejar una opinión</h3>
-        <select id="review-rating" required style="padding: 10px; border-radius: 6px; background-color: #0f172a; color: #fff; border: 1px solid #334155;">
-          <option value="">Selecciona una calificación</option>
-          <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
-          <option value="4">⭐⭐⭐⭐ (4/5)</option>
-          <option value="3">⭐⭐⭐ (3/5)</option>
-          <option value="2">⭐⭐ (2/5)</option>
-          <option value="1">⭐ (1/5)</option>
-        </select>
-        <textarea id="review-comment" placeholder="Escribe tu opinión sobre el vuelo..." required style="padding: 10px; border-radius: 6px; background-color: #0f172a; color: #fff; border: 1px solid #334155; min-height: 80px;"></textarea>
-        <button type="submit">Publicar Reseña</button>
-      </form>
+          <div class="cta-row">
+            <a class="primary-btn" href="destinos.html">Explorar destinos</a>
+            <a class="secondary-btn" href="comunidad.html">Ver historias</a>
+          </div>
 
-      <!-- Listado dinámico de opiniones -->
-      <div id="reviews-list">
-        <p>Cargando opiniones...</p>
-      </div>
-    </section>
-  </main>
+          <div class="stats-row">
+            <div>
+              <strong>18k+</strong>
+              <span>rutas guardadas</span>
+            </div>
+            <div>
+              <strong>4.8/5</strong>
+              <span>calificación media</span>
+            </div>
+            <div>
+              <strong>8 ciudades</strong>
+              <span>en tendencia</span>
+            </div>
+          </div>
+        </div>
 
-  <script src="js/api.js"></script>
-</body>
+        <div class="hero-visual">
+          <div class="video-panel glass-card">
+            <video autoplay muted loop playsinline>
+              <source src="https://videos.pexels.com/video-files/7033187/7033187-hd_1920_1080.mp4" type="video/mp4" />
+            </video>
+            <div class="video-overlay"></div>
+            <div class="video-info">
+              <span class="video-live">Live trip story</span>
+              <h3>Lisboa → Kyoto</h3>
+            </div>
+          </div>
+
+          <div class="floating-badge badge-one glass-card">+24% planning</div>
+          <div class="floating-badge badge-two glass-card">Travel notes</div>
+        </div>
+      </section>
+
+      <section class="flight-search reveal">
+        <div class="search-shell glass-card">
+          <div class="search-copy">
+            <p class="eyebrow">Busca tu vuelo</p>
+            <h2>Encuentra la mejor aerolínea para tu ruta.</h2>
+          </div>
+
+          <form id="flight-search-form" class="search-form">
+            <label>
+              Origen
+              <select id="from-city">
+                <option value="Madrid">Madrid</option>
+                <option value="Barcelona">Barcelona</option>
+                <option value="Buenos Aires">Buenos Aires</option>
+                <option value="Londres">Londres</option>
+              </select>
+            </label>
+
+            <label>
+              Destino
+              <select id="to-city">
+                <option value="Lisboa">Lisboa</option>
+                <option value="Kyoto">Kyoto</option>
+                <option value="Roma">Roma</option>
+                <option value="Seúl">Seúl</option>
+              </select>
+            </label>
+
+            <label>
+              Presupuesto
+              <select id="budget-level">
+                <option value="all">Todos</option>
+                <option value="economy">Económico</option>
+                <option value="premium">Premium</option>
+              </select>
+            </label>
+
+            <button type="submit" class="primary-btn">Comparar</button>
+          </form>
+
+          <div class="best-choice" id="best-flight-result">Cargando recomendación...</div>
+        </div>
+      </section>
+
+      <section class="personas reveal">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Personas reales</p>
+            <h2>Viajamos distinto según quién eres.</h2>
+          </div>
+          <a href="perfil.html" class="link-pill">Ver perfiles</a>
+        </div>
+
+        <div class="persona-grid" data-personas></div>
+      </section>
+
+      <section class="airline-section reveal">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Aerolíneas</p>
+            <h2>Compará opciones premiadas.</h2>
+          </div>
+          <a href="vuelos.html" class="link-pill">Ver vuelos</a>
+        </div>
+        <div class="airline-grid" data-airlines></div>
+      </section>
+
+      <section class="trending reveal">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Más elegidos</p>
+            <h2>Destinos con mayor demanda esta semana.</h2>
+          </div>
+          <a href="destinos.html" class="link-pill">Ver todos</a>
+        </div>
+        <div class="featured-grid" data-top-destinations></div>
+      </section>
+
+      <section class="features reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Qué te ayuda a decidir</p>
+          <h2>Todo lo que necesitas antes del despegue.</h2>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card glass-card">
+            <div class="icon-wrap">✦</div>
+            <h3>Rutas personalizadas</h3>
+            <p>Descubrí itinerarios por estilo de viaje: food escape, cultura, naturaleza o trabajo remoto.</p>
+          </article>
+
+          <article class="feature-card glass-card">
+            <div class="icon-wrap">◎</div>
+            <h3>Historias de viajeros</h3>
+            <p>Leé anecdotes auténticas sobre transporte, clima, barrios favoritos y errores que vale la pena evitar.</p>
+          </article>
+
+          <article class="feature-card glass-card">
+            <div class="icon-wrap">✧</div>
+            <h3>Fichas de destino</h3>
+            <p>Compará presupuesto, tiempos de conexión, seguridad y mejor momento para ir según la temporada.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="planner reveal">
+        <div class="planner-card glass-card">
+          <div class="planner-copy">
+            <p class="eyebrow">Planificador</p>
+            <h3>Armá tu próximo destino en 10 minutos.</h3>
+            <p>Elegí estilo, presupuesto y clima para recibir recomendaciones más útiles.</p>
+          </div>
+
+          <div class="planner-form">
+            <label>
+              Estilo de viaje
+              <select>
+                <option>Relax + food</option>
+                <option>Exploración urbana</option>
+                <option>Adrenalina + naturaleza</option>
+                <option>Digital nomad</option>
+              </select>
+            </label>
+            <label>
+              Presupuesto
+              <select>
+                <option>Moderado</option>
+                <option>Premium</option>
+                <option>Low cost</option>
+              </select>
+            </label>
+            <a href="destinos.html" class="primary-btn small-btn">Ver sugerencias</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="opinions reveal">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Opiniones destacadas</p>
+            <h2>Lo que la comunidad dice después de viajar.</h2>
+          </div>
+          <a href="comunidad.html" class="link-pill">Ver comunidad</a>
+        </div>
+        <div class="featured-grid reviews-grid" data-featured-reviews></div>
+      </section>
+    </main>
+
+    <footer class="site-footer reveal">
+      <p>© <span id="year"></span> AeroRate — Viaja mejor.</p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+  </body>
 </html>

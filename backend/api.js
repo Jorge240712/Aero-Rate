@@ -16,7 +16,7 @@ function showPage(pageId) {
     selectedPage.classList.add('active-page');
   }
 
-  // Marcar botón activo según la página
+  //Marcar el botón correspondiente como activo
   if (pageId === 'reviews-page') document.querySelectorAll('.nav-btn')[0].classList.add('active');
   if (pageId === 'login-page') document.querySelectorAll('.nav-btn')[1].classList.add('active');
 }

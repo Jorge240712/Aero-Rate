@@ -9,22 +9,32 @@ const register = async (req, res) => {
     return res.status(400).json({ error: 'Todos los campos son obligatorios' });
   }
 
+  if (typeof username !== 'string' || username.trim().length < 3) {
+    return res.status(400).json({ error: 'El nombre de usuario debe tener al menos 3 caracteres' });
+  }
+
+  if (typeof email !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return res.status(400).json({ error: 'El email ingresado no es válido' });
+  }
+
+  if (typeof password !== 'string' || password.length < 6) {
+    return res.status(400).json({ error: 'La contraseña debe tener al menos 6 caracteres' });
+  }
+
   try {
     const userCheck = await db.query(
       'SELECT id FROM users WHERE email = $1 OR username = $2',
-      [email, username]
+      [email.trim(), username.trim()]
     );
 
     if (userCheck.rows.length > 0) {
       return res.status(400).json({ error: 'El email o usuario ya está registrado' });
     }
 
-    const saltRounds = 10;
-    const passwordHash = await bcrypt.hash(password, saltRounds);
-
+    const passwordHash = await bcrypt.hash(password, 10);
     const newUser = await db.query(
       'INSERT INTO users (username, email, password_hash) VALUES ($1, $2, $3) RETURNING id, username, email, role',
-      [username, email, passwordHash]
+      [username.trim(), email.trim(), passwordHash]
     );
 
     const user = newUser.rows[0];
@@ -48,8 +58,12 @@ const login = async (req, res) => {
     return res.status(400).json({ error: 'Email y contraseña requeridos' });
   }
 
+  if (typeof email !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return res.status(400).json({ error: 'El email ingresado no es válido' });
+  }
+
   try {
-    const result = await db.query('SELECT * FROM users WHERE email = $1', [email]);
+    const result = await db.query('SELECT * FROM users WHERE email = $1', [email.trim()]);
 
     if (result.rows.length === 0) {
       return res.status(401).json({ error: 'Credenciales inválidas' });

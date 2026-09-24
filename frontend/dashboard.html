@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AeroRate | Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="dashboard">
+    <header class="topbar">
+      <a href="index.html" class="brand-wrap">
+        <div class="brand-mark">A</div>
+        <span>AeroRate</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="destinos.html">Destinos</a>
+        <a href="vuelos.html">Vuelos</a>
+        <a href="comunidad.html">Comunidad</a>
+      </nav>
+      <button id="logout-btn" class="ghost-btn" type="button">Cerrar sesión</button>
+    </header>
+
+    <main class="page-shell dashboard-shell">
+      <section class="page-section reveal">
+        <p class="eyebrow">Panel personal</p>
+        <h1 id="welcome-user">Bienvenido</h1>
+      </section>
+
+      <section class="dashboard-grid reveal">
+        <article class="glass-card dashboard-card">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Publicar</p>
+              <h3>Tu opinión</h3>
+            </div>
+          </div>
+
+          <form id="review-form" class="stack-form">
+            <div class="field-group">
+              <label for="review-rating">Calificación</label>
+              <select id="review-rating" required>
+                <option value="">Seleccioná</option>
+                <option value="5">5 - Excelente</option>
+                <option value="4">4 - Muy buena</option>
+                <option value="3">3 - Aceptable</option>
+                <option value="2">2 - Regular</option>
+                <option value="1">1 - Mala</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label for="review-comment">Comentario</label>
+              <textarea id="review-comment" placeholder="Contanos tu experiencia..." required></textarea>
+            </div>
+
+            <button id="review-submit" class="primary-btn full-width" type="submit">Publicar reseña</button>
+          </form>
+        </article>
+
+        <article class="glass-card dashboard-card">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Tus reseñas</p>
+              <h3>Mis experiencias</h3>
+            </div>
+          </div>
+
+          <div id="my-reviews" class="review-list"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="js/api.js"></script>
+  </body>
+</html>

@@ -3,10 +3,11 @@ const router = express.Router();
 const reviewController = require('../controllers/review.controller');
 const authenticateToken = require('../middlewares/auth.middleware');
 
-// Cualquiera puede ver las reseñas
 router.get('/', reviewController.getAllReviews);
-
-// Solo usuarios logueados pueden crear una reseña (usa el middleware de auth)
+router.get('/admin', authenticateToken, reviewController.getAdminReviews);
+router.get('/mine', authenticateToken, reviewController.getMyReviews);
 router.post('/', authenticateToken, reviewController.createReview);
+router.patch('/:id', authenticateToken, reviewController.updateReview);
+router.delete('/:id', authenticateToken, reviewController.deleteReview);
 
 module.exports = router;
